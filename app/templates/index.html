@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to DevOps Project</h1>
+
+        <p>
+            Flask Application deployed using:
+        </p>
+
+        <ul>
+            <li>Docker</li>
+            <li>Jenkins</li>
+            <li>Kubernetes</li>
+            <li>AWS EKS</li>
+            <li>Terraform</li>
+        </ul>
+
+        <button onclick="showMessage()">
+            Click Me
+        </button>
+
+        <h3 id="message"></h3>
+    </div>
+
+<script>
+function showMessage() {
+    document.getElementById("message").innerHTML =
+    "CI/CD Pipeline Working Successfully!";
+}
+</script>
+
+</body>
+</html>
