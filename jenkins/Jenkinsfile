@@ -11,9 +11,7 @@ pipeline {
       stage('build and push image '){
       steps{
         sh'''
-           cd /var/lib/jenkins/workspace/flasks-app-devops
             chmod +x scripts/build.sh
-
            ./scripts/build.sh
         '''
       }
