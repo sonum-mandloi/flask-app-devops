@@ -10,14 +10,14 @@ pipeline {
       }
     }
 
-    // stage('build and push image '){
-    //   steps{
-    //     sh'''
-    //         chmod +x scripts/build.sh
-    //        cd scripts
-    //        ./build.sh
-    //     '''
-    //   }
-    // }
+    stage('build and push image '){
+      steps{
+        sh'''
+            chmod +x scripts/build.sh
+           cd scripts
+           ./build.sh
+        '''
+      }
+    }
   }
 }
