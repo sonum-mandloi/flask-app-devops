@@ -9,4 +9,42 @@ resource "aws_instance" "jenkins_server" {
   tags = {
     Name = "Jenkins-Server"
   }
+
+  user_data = <<-EOF
+#!/bin/bash
+
+set -ex
+ 
+# Log everything
+exec > /var/log/user-data.log 2>&1
+
+apt update -y
+
+# Git
+apt install git -y
+
+# Docker
+apt install docker.io -y
+systemctl start docker
+systemctl enable docker
+usermod -aG docker ubuntu
+
+# Java
+sudo apt update
+sudo apt install fontconfig openjdk-21-jre -y
+java --version
+
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
+sudo apt install jenkins -y
+
+# Clone repo
+cd /opt
+git clone https://github.com/sonum-mandloi/flask-app-devops.git
+
+EOF
 }

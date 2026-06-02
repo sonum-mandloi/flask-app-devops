@@ -15,7 +15,7 @@ module "module2" {
 module "module3" {
     source = "../instance"
     i_type = "m7i-flex.large"
-    i_image = "ami-0a59248a6294cece2"
+    i_image = "ami-0150847fe1b89b004"
     key_name = "sydney"
     sg_id = module.module2.sg_out
     public_subnet_1 = module.module1.public_out_1
