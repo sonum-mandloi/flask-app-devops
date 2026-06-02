@@ -8,16 +8,20 @@ pipeline {
       }
     }
 
-      stage('build and push image '){
-      steps{
-        sh'''
-              pwd
-              ls -la
-            chmod +x scripts/build.sh
-           ./scripts/build.sh
-        '''
-      }
-    }
+      stage('Build and Push') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    sh '''
+                        chmod +x scripts/build.sh
+                        ./scripts/build.sh
+                    '''
+                }
+            }
+        }
   }
 }
 
