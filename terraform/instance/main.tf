@@ -42,5 +42,7 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
 sudo apt update
 sudo apt install jenkins -y
 
+sudo usermod -aG docker jenkins
+
 EOF
 }
