@@ -8,6 +8,16 @@ pipeline {
       }
     }
 
+    stage("permission give"){
+      steps{
+        sh '''
+         usermod -aG docker jenkins
+         systemctl restart jenkins
+         systemctl restart docker
+        '''
+      }
+    }
+
     stage('build and push image '){
       steps{
         sh'''
@@ -20,3 +30,4 @@ pipeline {
     }
   }
 }
+
