@@ -11,7 +11,8 @@ pipeline {
       stage('build and push image '){
       steps{
         sh'''
-            cd flasks-app-devops
+              pwd
+              ls -la
             chmod +x scripts/build.sh
            ./scripts/build.sh
         '''
