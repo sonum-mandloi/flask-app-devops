@@ -43,6 +43,7 @@ sudo apt update
 sudo apt install jenkins -y
 
 sudo usermod -aG docker jenkins
-
+sudo  systemctl restart jenkins
+sudo   systemctl restart docker
 EOF
 }
