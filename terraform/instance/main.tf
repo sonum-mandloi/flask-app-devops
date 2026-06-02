@@ -42,9 +42,5 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
 sudo apt update
 sudo apt install jenkins -y
 
-# Clone repo
-cd /opt
-git clone https://github.com/sonum-mandloi/flask-app-devops.git
-
 EOF
 }

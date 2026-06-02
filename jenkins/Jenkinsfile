@@ -1,0 +1,23 @@
+pipeline {
+  agent any
+  stages{
+    stage('git clone'){
+      steps{
+        sh'''
+        cd /opt
+        '''
+        git url: 'https://github.com/sonum-mandloi/flask-app-devops.git', branch: 'main'
+      }
+    }
+
+    // stage('build and push image '){
+    //   steps{
+    //     sh'''
+    //         chmod +x scripts/build.sh
+    //        cd scripts
+    //        ./build.sh
+    //     '''
+    //   }
+    // }
+  }
+}
