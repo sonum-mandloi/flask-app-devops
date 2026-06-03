@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  environment {
+        AWS_DEFAULT_REGION = 'ap-southeast-2'
+    }
+
   stages{
     stage('git clone'){
       steps{
@@ -24,10 +28,16 @@ pipeline {
     }
     stage('create cluster'){
       steps{
-        sh'''
+        withCredentials([
+                    string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
+                    string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
+                ]) 
+       {
+         sh'''
             chmod +x scripts/cluster.sh
             ./scripts/cluster.sh
         '''
+       }
       }
     }
   }
