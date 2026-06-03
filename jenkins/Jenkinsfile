@@ -8,7 +8,7 @@ pipeline {
       }
     }
 
-      stage('Build and Push') {
+    stage('Build and Push') {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-creds',
@@ -19,9 +19,17 @@ pipeline {
                         chmod +x scripts/build.sh
                         ./scripts/build.sh
                     '''
-                }
+                   }
             } 
-        }
+    }
+    stage('create cluster'){
+      steps{
+        sh'''
+            chmod +x scripts/cluster.sh
+            ./scripts/cluster.sh
+        '''
+      }
+    }
   }
 }
 
