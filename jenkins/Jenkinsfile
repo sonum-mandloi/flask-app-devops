@@ -20,7 +20,7 @@ pipeline {
                         ./scripts/build.sh
                     '''
                 }
-            }
+            } 
         }
   }
 }
