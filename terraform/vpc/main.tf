@@ -28,6 +28,8 @@ resource "aws_subnet" "public_subnet_2" {
   }
 }
 
+
+
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.devops_vpc.id
 
@@ -54,3 +56,4 @@ resource "aws_route_table_association" "b" {
   subnet_id      = aws_subnet.public_subnet_2.id
   route_table_id = aws_route_table.public_rt.id
 }
+

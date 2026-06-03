@@ -9,3 +9,4 @@ output "public_out_1" {
 output "public_out_2" {
   value = aws_subnet.public_subnet_2.id
 }
+
