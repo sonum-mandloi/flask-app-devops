@@ -39,6 +39,8 @@ pipeline {
     steps {
         sh '''
         cd k8s
+        kubectl set image deployment/flask-deployment \
+        flask-container=sonu7873/flask-app-devops:$BUILD_NUMBER  
         kubectl apply -f .
         '''
      }
