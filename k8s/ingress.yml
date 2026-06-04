@@ -5,6 +5,7 @@ metadata:
   name: flask-ingress
 
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
