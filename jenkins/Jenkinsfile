@@ -26,19 +26,13 @@ pipeline {
                    }
             } 
     }
-    stage('create cluster'){
-      steps{
-        withCredentials([
-                    string(credentialsId: 'aws-access-key', variable: 'AWS_ACCESS_KEY_ID'),
-                    string(credentialsId: 'aws-secret-key', variable: 'AWS_SECRET_ACCESS_KEY')
-                ]) 
-       {
-         sh'''
-            chmod +x scripts/cluster.sh
-            ./scripts/cluster.sh
+    stage('Install Ingress Controller') {
+    steps {
+        sh '''
+        chmod +x scripts/ingress.sh
+        ./scripts/ingress.sh
         '''
-       }
-      }
+     }
     }
   }
 }
