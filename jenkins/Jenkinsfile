@@ -3,9 +3,7 @@ pipeline {
   environment {
         AWS_DEFAULT_REGION = 'ap-southeast-2'
     }
-     tools {
-       jdk 'jdk21'
-    } 
+   
   stages{
     stage('git clone'){
       steps{
