@@ -3,7 +3,9 @@ pipeline {
   environment {
         AWS_DEFAULT_REGION = 'ap-southeast-2'
     }
-
+     tools {
+        sonarQube 'SonarScanner'
+    }
   stages{
     stage('git clone'){
       steps{
@@ -11,6 +13,42 @@ pipeline {
         git url: 'https://github.com/sonum-mandloi/flask-app-devops.git', branch: 'main'
       }
     }
+
+    
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'SonarScanner'
+
+                    withSonarQubeEnv('SonarQube') {
+                        sh """
+                        ${scannerHome}/bin/sonar-scanner
+                        """
+                    }
+                }
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t sonu7873/flask-app-devops:${BUILD_NUMBER} -f app/DockerFile app'
+            }
+        }
+
 
     stage('Build and Push') {
             steps {
@@ -26,23 +64,23 @@ pipeline {
                    }
             } 
     }
-    stage('Install Ingress Controller') {
-    steps {
-        sh '''
-        chmod +x scripts/ingress.sh
-        ./scripts/ingress.sh
-        '''
-     }
-    }
+    // stage('Install Ingress Controller') {
+    // steps {
+    //     sh '''
+    //     chmod +x scripts/ingress.sh
+    //     ./scripts/ingress.sh
+    //     '''
+    //  }
+    // }
 
-    stage('apply file') {
-    steps {
-        sh '''
-        cd k8s
-        kubectl apply -f .
-        '''
-     }
-    }
+    // stage('apply file') {
+    // steps {
+    //     sh '''
+    //     cd k8s
+    //     kubectl apply -f .
+    //     '''
+    //  }
+    // }
   }
 }
 

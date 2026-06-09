@@ -16,7 +16,20 @@ module "module3" {
     i_type = "m7i-flex.large"
     i_image = "ami-0150847fe1b89b004"
     key_name = "sydney"
+    i_name = "Jenkins-Server"
     sg_id = module.module2.sg_out
     public_subnet_1 = module.module1.public_out_1
+    user_data = file("${path.module}/../instance/userdata_jenkins.sh")
 }
 
+module "module4" {
+    source = "../instance"
+    i_type = "m7i-flex.large"
+    i_image = "ami-0150847fe1b89b004"
+    key_name = "sydney"
+    i_name = "sonarqube_server"
+    sg_id = module.module2.sg_out
+    public_subnet_1 = module.module1.public_out_1
+    user_data = file("${path.module}/../instance/userdata_sonar.sh")
+
+}

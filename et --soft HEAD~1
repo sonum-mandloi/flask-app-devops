@@ -1,0 +1,32 @@
+[33mf42c177[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m remove key
+[33m30d331d[m sonarqube install and setup
+[33mba77256[m[33m ([m[1;31morigin/main[m[33m)[m ingress file me class add
+[33m1c03c4b[m jenkins file change
+[33m6d7f04e[m build iamge tag
+[33m27554f6[m change in build script
+[33m1c6bd1b[m image set command
+[33m14bb558[m check file
+[33m34fdfa1[m apply file of deployment
+[33mf679df2[m rename of ingress file
+[33m84655cb[m install ingress controller
+[33mbd9916f[m credentials add
+[33mec5d6cc[m cluster create script add
+[33mbff89d4[m only check
+[33me876ffd[m in userdata add eks and kubectl install
+[33m1e485ce[m build file change
+[33mba370fe[m id change
+[33m5f73401[m id
+[33mdb205f2[m add docker login in pepiline
+[33mc125e5a[m docker login command add
+[33m5ecb8c9[m small change in build.sh
+[33me68f020[m small change
+[33m3655a0a[m pipeline change
+[33m45eb26a[m dockerfile name rename
+[33m6adcbbb[m permission
+[33mfc2e275[m permission
+[33m70fb573[m dockerfile location set
+[33ma777817[m in script location add in pipeline
+[33mb8590cf[m docker image build
+[33m0ba7150[m add webhook to jenkins
+[33ma80346a[m add user data
+[33md5b7d49[m Initial commit
