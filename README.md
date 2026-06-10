@@ -98,6 +98,8 @@ Step 1: Clone Repository
 
 ```cd flask-app-devops ```
 
+---
+
 Step 2: Create AWS Infrastructure Using Terraform
 
 Navigate to Terraform directory:
@@ -123,13 +125,51 @@ Create infrastructure:
 Resources created:
 
 VPC
-Public Subnets
-Security Groups
-EC2 Instance
-IAM Roles
-EKS Cluster
-Worker Nodes
- 
+Public Subnets,
+Security Groups,
+EC2 Instance,
+IAM Roles,
+EKS Cluster,
+Worker Nodes,
+---
+Step 3: Configure Jenkins
 
+Install Jenkins on EC2.
 
+Access Jenkins:
 
+```http://<jenkins-public-ip>:8080```
+Configure:
+
+JDK
+Git
+Docker
+SonarQube Scanner
+AWS Credentials
+
+---
+Step 4: Configure SonarQube
+
+Run SonarQube using Docker:
+
+```docker run -d \
+--name sonarqube \
+-p 9000:9000 \
+sonarqube:lts-community```
+
+Access:
+```http://<server-ip>:9000```
+
+Create:
+
+SonarQube Project
+Token
+
+Add token to Jenkins credentials.
+
+---
+
+Step 5: Build Docker Image
+
+Build image:
+```docker build -t flask-app .````
