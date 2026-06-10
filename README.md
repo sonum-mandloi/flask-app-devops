@@ -76,3 +76,58 @@ flask-app-devops/
 ├── Jenkinsfile
 │
 └── README.md
+
+
+Prerequisites
+
+Before starting, ensure you have:
+
+AWS Account
+AWS CLI configured
+Terraform installed
+Docker installed
+kubectl installed
+Jenkins Server
+SonarQube Server
+Docker Hub Account
+GitHub Repository
+
+Step 1: Clone Repository
+
+git clone https://github.com/your-username/flask-app-devops.git
+
+cd flask-app-devops
+
+Step 2: Create AWS Infrastructure Using Terraform
+
+Navigate to Terraform directory:
+
+cd terraform/module
+
+Initialize Terraform:
+
+terraform init
+
+Validate configuration:
+
+terraform validate
+
+Preview infrastructure:
+
+terraform plan
+
+Create infrastructure:
+
+terraform apply -auto-approve
+
+Resources created:
+
+VPC
+Public Subnets
+Security Groups
+EC2 Instance
+IAM Roles
+EKS Cluster
+Worker Nodes
+
+
