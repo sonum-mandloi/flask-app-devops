@@ -94,31 +94,31 @@ GitHub Repository
 
 Step 1: Clone Repository
 
-git clone https://github.com/your-username/flask-app-devops.git
+``` git clone https://github.com/your-username/flask-app-devops.git```
 
-cd flask-app-devops
+```cd flask-app-devops ```
 
 Step 2: Create AWS Infrastructure Using Terraform
 
 Navigate to Terraform directory:
 
-cd terraform/module
+```cd terraform/module```
 
 Initialize Terraform:
 
-terraform init
+```terraform init```
 
 Validate configuration:
 
-terraform validate
+```terraform validate```
 
 Preview infrastructure:
 
-terraform plan
+```terraform plan```
 
 Create infrastructure:
 
-terraform apply -auto-approve
+```terraform apply -auto-approve```
 
 Resources created:
 
@@ -129,7 +129,7 @@ EC2 Instance
 IAM Roles
 EKS Cluster
 Worker Nodes
-
+ 
 
 
 
