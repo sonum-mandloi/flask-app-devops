@@ -82,15 +82,15 @@ flask-app-devops/
 
 Before starting, ensure you have:
 
-  AWS Account
-  AWS CLI configured
-  Terraform installed
-  Docker installed
-  kubectl installed
-  Jenkins Server
-  SonarQube Server
-  Docker Hub Account
-  GitHub Repository
+-  AWS Account
+-  AWS CLI configured
+-  Terraform installed
+-  Docker installed
+-  kubectl installed
+-  Jenkins Server
+-  SonarQube Server
+-  Docker Hub Account
+-  GitHub Repository
 
 ## Step 1: Clone Repository
 
