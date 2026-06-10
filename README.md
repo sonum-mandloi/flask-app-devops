@@ -126,13 +126,13 @@ Create infrastructure:
 
 Resources created:
 
-  VPC,
-  Public Subnets,
-  Security Groups,
-  EC2 Instance,
-  IAM Roles,
-  EKS Cluster,
-  Worker Nodes,
+ - VPC
+ - Public Subnets
+ - Security Groups
+ - EC2 Instance
+ - IAM Roles
+ - EKS Cluster
+ - Worker Nodes
   
 ---
 
@@ -145,11 +145,11 @@ Access Jenkins:
 ``` http://<jenkins-public-ip>:8080```
 Configure:
 
-  JDK
-  Git
-  Docker
-  SonarQube Scanner
-  AWS Credentials
+ - JDK
+ - Git
+ - Docker
+ - SonarQube Scanner
+ - AWS Credentials
 
 ---
 
@@ -164,8 +164,8 @@ Access:
 
 Create:
 
-  SonarQube Project
-  Token
+-  SonarQube Project
+- Token
 
 Add token to Jenkins credentials.
 
@@ -215,11 +215,11 @@ Use Jenkinsfile from repository.
 
 Pipeline stages:
 
-  Git Clone
-  SonarQube Analysis
-  Docker Build
-  Docker Push
-  Kubernetes Deployment
+-  Git Clone
+-  SonarQube Analysis
+-  Docker Build
+-  Docker Push
+-  Kubernetes Deployment
 
 ---
 
@@ -267,11 +267,11 @@ to:
 ## Step 10: Monitoring Using CloudWatch
 
 CloudWatch monitors:
-    EC2
-    EKS
-    Application Logs
-    Container Logs
-    Metrics
+  -  EC2
+  -  EKS
+  -  Application Logs
+  -  Container Logs
+  -  Metrics
 
 Verify:
    AWS Console → CloudWatch
@@ -279,26 +279,26 @@ Verify:
 ---
 
 ## CI/CD Workflow
-  Developer pushes code to GitHub
-  GitHub Webhook triggers Jenkins
-  Jenkins clones repository
-  SonarQube analyzes code quality
-  Docker image is built
-  Image pushed to Docker Hub
-  Kubernetes deployment updated
-  Load Balancer serves application
-  Route53 routes domain traffic
-  CloudWatch monitors infrastructure
+ - Developer pushes code to GitHub
+ - GitHub Webhook triggers Jenkins
+ - Jenkins clones repository
+ - SonarQube analyzes code quality
+ - Docker image is built
+ - Image pushed to Docker Hub
+ - Kubernetes deployment updated
+ - Load Balancer serves application
+ - Route53 routes domain traffic
+ - CloudWatch monitors infrastructure
 
 ---
 
 ## Features
-  Infrastructure as Code (Terraform)
-  CI/CD Automation
-  Docker Containerization
-  Kubernetes Orchestration
-  Automated Deployment
-  Route53 DNS Mapping
-  CloudWatch Monitoring
-  GitHub Webhook Integration
-  SonarQube Code Quality Checks
+ - Infrastructure as Code (Terraform)
+ - CI/CD Automation
+ - Docker Containerization
+ - Kubernetes Orchestration
+ - Automated Deployment
+ - Route53 DNS Mapping
+ - CloudWatch Monitoring
+ - GitHub Webhook Integration
+ - SonarQube Code Quality Checks
