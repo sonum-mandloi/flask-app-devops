@@ -239,14 +239,13 @@ Apply Ingress:
 
 Verify resources:
 
-   ```
+ ```
     kubectl get pods
     
     kubectl get svc
     
     kubectl get ingress
-    ```
-
+```
 ---
 
 ## Step 9: Configure Route53
