@@ -124,7 +124,7 @@ Create infrastructure:
 
 Resources created:
 
-VPC
+VPC,
 Public Subnets,
 Security Groups,
 EC2 Instance,
@@ -152,10 +152,7 @@ Step 4: Configure SonarQube
 
 Run SonarQube using Docker:
 
-```docker run -d \
---name sonarqube \
--p 9000:9000 \
-sonarqube:lts-community```
+``` docker run -d --name sonarqube -p 9000:9000 sonarqube:lts-community```
 
 Access:
 ```http://<server-ip>:9000```
@@ -172,4 +169,134 @@ Add token to Jenkins credentials.
 Step 5: Build Docker Image
 
 Build image:
-```docker build -t flask-app .````
+```docker build -t flask-app .```
+
+Test image:
+```docker run -p 5000:5000 flask-app```
+
+Push image:
+```
+docker tag flask-app username/flask-app:latest
+
+docker push username/flask-app:latest
+```
+
+---
+Step 6: Configure GitHub Webhook
+
+GitHub Repository
+
+Settings → Webhooks
+
+Payload URL:
+
+```
+http://<jenkins-public-ip>:8080/github-webhook/
+```
+
+Content Type:
+
+```application/json```
+
+Now every code push triggers Jenkins automatically.
+
+---
+
+Step 7: Configure Jenkins Pipeline
+
+Create Pipeline Job.
+
+Use Jenkinsfile from repository.
+
+Pipeline stages:
+
+Git Clone
+SonarQube Analysis
+Docker Build
+Docker Push
+Kubernetes Deployment
+
+---
+
+Step 8: Deploy Application to Kubernetes
+
+Apply Deployment:
+
+```kubectl apply -f deployment.yaml```
+
+Apply Service:
+
+```kubectl apply -f service.yaml```
+
+Apply Ingress:
+
+```kubectl apply -f ingress.yaml```
+
+Verify resources:
+
+```
+kubectl get pods
+
+kubectl get svc
+
+kubectl get ingress
+```
+
+---
+
+Step 9: Configure Route53
+
+Create Hosted Zone.
+
+Create A Record.
+
+Map:
+
+```app.yourdomain.com```
+
+to:
+
+```AWS Load Balancer DNS```
+
+---
+
+Step 10: Monitoring Using CloudWatch
+
+CloudWatch monitors:
+
+EC2
+EKS
+Application Logs
+Container Logs
+Metrics
+
+Verify:
+
+AWS Console → CloudWatch
+
+---
+
+## CI/CD Workflow
+Developer pushes code to GitHub
+GitHub Webhook triggers Jenkins
+Jenkins clones repository
+SonarQube analyzes code quality
+Docker image is built
+Image pushed to Docker Hub
+Kubernetes deployment updated
+Load Balancer serves application
+Route53 routes domain traffic
+CloudWatch monitors infrastructure
+
+---
+
+## Features
+Infrastructure as Code (Terraform)
+CI/CD Automation
+Docker Containerization
+Kubernetes Orchestration
+Automated Deployment
+Route53 DNS Mapping
+CloudWatch Monitoring
+GitHub Webhook Integration
+SonarQube Code Quality Checks
