@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: flask-container
-        image: sonu7873/flask-app-devops:latest
+        image: sonu7873/flask-app-devops:IMAGE_TAG
 
         ports:
         - containerPort: 5000

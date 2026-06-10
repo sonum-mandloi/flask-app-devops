@@ -15,7 +15,7 @@
 
 
 IMAGE_NAME="sonu7873/flask-app-devops"
-IMAGE_TAG="latest"
+IMAGE_TAG=$BUILD_NUMBER
 
 echo "Checking if image exists: $IMAGE_NAME:$IMAGE_TAG"
 
