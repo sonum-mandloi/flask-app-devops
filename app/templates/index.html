@@ -6,27 +6,82 @@
 </head>
 <body>
 
+    <header>
     <div class="container">
-        <h1>Welcome to DevOps Project</h1>
+        <h1>AWS DevOps CI/CD Project</h1>
+        <p>Built using AWS, Terraform, Docker, Jenkins, Kubernetes & Datadog</p>
+    </div>
+</header>
 
+<section class="hero">
+    <div class="container">
+        <h2>Cloud Native DevOps Project</h2>
         <p>
-            Flask Application deployed using:
+            This application demonstrates a complete DevOps workflow
+            including Infrastructure as Code, Containerization,
+            Continuous Integration and Kubernetes Deployment.
         </p>
 
-        <ul>
-            <li>Docker</li>
-            <li>Jenkins</li>
-            <li>Kubernetes</li>
-            <li>AWS EKS</li>
-            <li>Terraform</li>
-        </ul>
-
-        <button onclick="showMessage()">
-            Click Me
-        </button>
-
-        <h3 id="message"></h3>
+        <a href="/health" class="btn">Check Health Status</a>
     </div>
+</section>
+
+<section class="services">
+    <div class="container">
+
+        <div class="card">
+            <h3>AWS</h3>
+            <p>Infrastructure hosted on AWS Cloud.</p>
+        </div>
+
+        <div class="card">
+            <h3>Terraform</h3>
+            <p>Infrastructure as Code for provisioning resources.</p>
+        </div>
+
+        <div class="card">
+            <h3>Docker</h3>
+            <p>Application containerization.</p>
+        </div>
+
+        <div class="card">
+            <h3>Jenkins</h3>
+            <p>Automated CI/CD pipeline.</p>
+        </div>
+
+        <div class="card">
+            <h3>Kubernetes</h3>
+            <p>Container orchestration using EKS.</p>
+        </div>
+
+        <div class="card">
+            <h3>Datadog</h3>
+            <p>Monitoring and observability.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="workflow">
+    <div class="container">
+        <h2>CI/CD Workflow</h2>
+
+        <ol>
+            <li>Developer pushes code to GitHub</li>
+            <li>Jenkins Pipeline triggers automatically</li>
+            <li>Docker image is built</li>
+            <li>Image pushed to Docker Hub</li>
+            <li>Kubernetes deployment updated</li>
+            <li>EKS deploys latest version</li>
+            <li>Datadog monitors application</li>
+        </ol>
+    </div>
+</section>
+
+<footer>
+    <p>Created by Sonu Mandloi | AWS DevOps Engineer Project</p>
+</footer>
+
 
 <script>
 function showMessage() {
