@@ -76,7 +76,7 @@ flask-app-devops/
 ├── Jenkinsfile
 │
 └── README.md
-text'''
+```
 ---
 ## Prerequisites
 
